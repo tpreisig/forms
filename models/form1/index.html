@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" id="container" >
+        <div class="form-container sign-up">
+            <form action="/signup" method="POST" role="form" id="signupForm">
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email to register</span>
+                <label for="name">Name</label> 
+                <input type="text" id="name" name="name" placeholder="Name" required>
+                <span class="error" id="nameError">Name is required</span>
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" name="email" placeholder="Email" required>
+                <span class="error" id="signupEmailError">Valid email is required</span>
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" name="password" placeholder="Password" required>
+                <span class="error" id="signupPasswordError">Password is required</span>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in"></div>
+        <div class="toggle-container"></div>
+    </div>
+</body>
+</html>
