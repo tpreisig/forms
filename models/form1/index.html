@@ -9,8 +9,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container" id="container" >
-        <div class="form-container sign-up">
+    <div class="container" id="container">
+        <div class="form-container sign-up" aria-hidden="true">
             <form action="/signup" method="POST" role="form" id="signupForm">
                 <h1>Create Account</h1>
                 <div class="social-icons">
@@ -32,8 +32,42 @@
                 <button type="submit">Sign Up</button>
             </form>
         </div>
-        <div class="form-container sign-in"></div>
-        <div class="toggle-container"></div>
+        <div class="form-container sign-in" aria-hidden="false">
+            <form action="/signin" method="POST" role="form" id="signinForm">
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use email and password</span>
+                <label for="signin-email">Email</label>
+                <input type="email" id="signin-email" name="email" placeholder="Email" required>
+                <span class="error" id="signinEmailError">Valid email is required</span>
+                <label for="signin-password">Password</label>
+                <input type="password" id="signin-password" name="password" placeholder="Password" required>
+                <span class="error" id="signinPasswordError">Password is required</span>
+                <a href="#" aria-label="Forgot your password?">Forgot your password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details on the right side to use all the site's features</p>
+                    <span>Already have an account?</span>
+                    <button id="sign-in" role="button">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details on the left side to use all the site's features</p>
+                    <span>You don't have an account?</span>
+                    <button id="sign-up" role="button">Sign Up</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

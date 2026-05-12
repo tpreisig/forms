@@ -26,10 +26,208 @@ body {
     border-radius: 30px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
+
+.container h1 {
+    color: aliceblue;
+    font-size: 2.2rem;
+}
+.container a {
+    color: aquamarine;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+}
+.container span {
+    font-size: 1.1rem;
+}
+.container button {
+    background-color: rgb(226, 83, 181); 
+    font-size: 15px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    color: yellow;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.container button:focus {
+    outline: 2px solid white;
+}
+.container p {
+    font-size: 15px;
+    color: aliceblue;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+}
 .container form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
     padding: 50px;
+}
+.container input{
+    color: white;
+    border: none;
+            padding: 10px 15px;
+    margin: 10px 0;
+    background: rgba(255,255,255,0.4);
+    font-size: 1.2rem;
+    width: 100%;
+    outline: none;
+    border-radius: 9px;
+}
+.container input::placeholder{
+    color: white;
+}
+.container input:focus {
+    outline: 2px solid aquamarine;
+}
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none; 
+}
+.form-container{
+    position: absolute;
+    top: 0;
+    transition: all 0.6s ease-in-out;
+}
+.sign-in{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+    opacity: 1;
+}
+.container.active .sign-in{
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.sign-up{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+.container.active .sign-up{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+
+@keyframes move {
+    0%, 49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100%{
+        opacity: 1;
+        z-index: 5
+    }         
+}
+.social-icons{
+    margin: 20px 0;
+}
+.social-icons a {
+    border: 1px solid white;
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+    transition: background 0.3s; 
+}
+.social-icons a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.toggle-container{
+    position: absolute;
+    top: 0;
+    left: 51%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    z-index: 10;
+    border-left: 2px dotted white;
+    border-right: 2px dotted white;
+}
+.container.active .toggle-container{
+    transform: translateX(-103%);
+}
+.toggle{
+    background: linear-gradient(rgb(241, 152, 241), rgba(135, 207, 235, 0.737));
+    height: 100%;
+    position: relative;
+    left: -100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+.container.active .toggle{
+    transform: translateX(50%);
+}
+
+.toggle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+.toggle-left{
+    transform: translateX(-200%);
+}
+.toggle-left span{
+    font-size: 13px;
+}
+.toggle-left button{
+    margin-top: 20px;
+    background: plum;
+    color: darkblue;
+}
+.container.active .toggle-left{
+    transform: translateX(0);
+}
+.toggle-right{
+    right: 0;
+    transform: translateX(0);
+}
+.toggle-right span{
+    font-size: 13px;
+}
+.toggle-right button{
+    margin-top: 20px;
+    background: plum;
+    color: darkblue;
+}
+.container.active .toggle-right{
+    transform: translateX(200%);
+}
+
+@media (max-width: 480px) {
+    .container { width: 100%; min-height: auto; border-radius: 15px; }
+    .container form { padding: 20px; }
+    .toggle-panel { padding: 0 10px; }
+    .container button { padding: 10px 20px; }
+    h1 { font-size: 1.8rem; }
+    .form-container { width: 100% !important; } /* Full width on mobile */
+    .toggle-container { display: none; } /* Simplify toggle on small screens */
 }
